@@ -26,6 +26,11 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;//添加serverPort
 
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "hi ,i'am paymentzipkin server fall back，welcome to here, O(∩_∩)O哈哈~";
+    }
+
     @GetMapping(value = "/payment/feign/timeout")
     public String paymentFeignTimeout()
     {

@@ -31,6 +31,14 @@ public class OrderController {
     @Resource
     private DiscoveryClient discoveryClient;
 
+    // ====================> zipkin+sleuth
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin()
+    {
+        String result = restTemplate.getForObject(PAYMENT_URL+"/payment/zipkin/", String.class);
+        return result;
+    }
+
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
 
